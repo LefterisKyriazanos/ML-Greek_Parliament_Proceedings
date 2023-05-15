@@ -1,4 +1,4 @@
-In this ML project i use an extensive dataset that contains three decades worth of Greek parliamentary proceedings.   
+In this ML project I use an extensive dataset that contains three decades worth of Greek parliamentary proceedings.   
 
 # The Dataset
 
@@ -26,12 +26,12 @@ The dataset consists of a csv file in UTF-8 encoding and includes the following 
 
 My final **goal** is to perform **classification** (speech --> political party) with and without the use of Neural Networks.    
  
-To achieve this goal i used **Python Pandas**, **Jupyter Notebook** and followed the below process:   
+To achieve this goal I used **Python Pandas**, **Jupyter Notebook** and followed the below process:   
 
 # PART 1 - Data Exploration and Trasformation 
 
-In this part i explore the dataset to get an overall idea of what it is about.   
-More specifically i extract **metrics** such as:   
+In this part I explore the dataset to get an overall idea of what it is about.   
+More specifically I extract **metrics** such as:   
 
     - Number of different political parties
     - Speeches per political party
@@ -43,8 +43,8 @@ More specifically i extract **metrics** such as:
 
 I also **visualize** the above metrics using the libraries **seaborn** and **matplotlib**.    
 
-In Part 1 i also proceed to clean and transform the dataset to be ready for the next step (classsification).    
-More specifically i:   
+In Part 1 I also proceed to clean and transform the dataset to be ready for the next step (classsification).    
+More specifically I:   
 
     - Delete rows that have NaN values
     - Delete entries from political parties that are underrepresented in the dataset (less that 1000 speeches)
@@ -57,10 +57,10 @@ More specifically i:
 
 # PART 2 - Machine Learning (classification without NNs)
 
-In this part i train 3 **non-neural network** algorithms to classify speeches.   
+In this part I train 3 **non-neural network** algorithms to classify speeches.   
 The **target variable** is the political party of the speaker.   
 
-I noticed that the dataset is pretty **imbalanced** so i proceeded to **upsample** some political parties using **sklearn**.   
+I noticed that the dataset is pretty **imbalanced** so I proceeded to **upsample** some political parties using **sklearn**.   
 
 I split the Data into **Train** and **Test** datasets and create **models** by using the below algorithms provided by **sklearn**:    
 
@@ -68,31 +68,28 @@ I split the Data into **Train** and **Test** datasets and create **models** by u
     - Multinomial NB --> 35% ACC
     - SGD classsifier --> 59% ACC
 
-Then i use the **Dummy Classifier** in order to compare the above results. It provided a very small accuracy of 6% as expected.    
+For reference **Dummy Classifier** provided a very small accuracy of 6%.    
 
 
 
 # PART 3 - Classification with Neural Networks
 
-In this part i use the **tensorflow** library to perform a classification using NNs.   
+In this part I use the **tensorflow** library to perform a classification using NNs.   
 
-I use 20% (90000 rows) of the dataset for testing, 12% (54000 rows) for validwation and the remaining 68% (306000 rows) for training.   
+I use 20% (90000 samples) of the dataset for testing, 12% (54000 samples) for validation and the remaining 68% (306000 samples) for training.   
 
-Before i import the data into the NN i need to convert text(speech) into an array of numbers.   
+Before I import the data into the NN I need to convert text(speech) into an array of numbers.   
 
-To do that i:   
+To do that I:   
 
     - Define the max length of each speech to 150 words
     - Tokenize each word in order for each word to have a unique code
     - Convert speeches to arrays of integers and use padding at the end
 
 Now the data is ready to be import into the Neural Network.   
-To construct my NN i used one Embeding layer followed by one LSTM layer and two Dense.  
+To construct my NN I used one Embeding layer followed by one LSTM layer and two Dense.  
 
-After training the model for 10 epochs i got these metrics:   
-
-    - Loss --> 1.01 
-    - Accuracy --> 80%
+After training the model for 10 epochs a multi-classification with accuracy of 80% was achieved.  
 
 
 
